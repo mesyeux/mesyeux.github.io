@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../Navbar'
+import Navbar from '../ModelNavbar'
 
 function Resume() {
   return (
@@ -40,7 +40,6 @@ editorials</li>
         <li>Angular: Moderate</li>
         <li>React: Moderate</li>
         <li>Spring: Basic</li>
-
    </>
   )
 }

@@ -1,0 +1,8 @@
+.dropdown-item {
+    text-decoration: none;
+    color: #000;
+}
+
+.dropdown-item:hover {
+    color: rgba(233, 13, 0);
+}

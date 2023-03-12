@@ -1,0 +1,25 @@
+.stats_wrapper {
+    display: grid;
+    grid-template-columns: 70px 70px;
+    width: 140px;
+    margin: 50px;
+    height: 60vh;
+}
+
+.switch {
+    font-size: 0.8rem;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+/* .metric.active, .imperial.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.metric.inactive, .imperial.inactive {
+    opacity: 0;
+    visibility: hidden;
+} */

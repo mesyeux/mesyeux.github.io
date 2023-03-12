@@ -1,43 +1,32 @@
-import React from 'react'
-import CardItem from './CardItem'
-import './Cards.css'
+import React from "react";
+import CardItem from "./CardItem";
+import "./Cards.css";
 
-function Cards() {
+function Cards(props) {
   return (
-    <div className='cards'>
-      <h1>Portfolio</h1>
+    <div className="cards">
       <div className="cards__container">
         <div className="cards__wrapper">
-          <ul className='cards__items'>
-            <CardItem 
-                  src='images/shoot1.jpg'
-                  text='MyTheresa Lookbook'
-                  label='lookbook'
-                  path='/idk'
-              />
-              <CardItem 
-                  src='images/shoot2.jpg'
-                  text='Holzweiler'
-                  label='lookbook'
-                  path='/idk'
-              />
-            <CardItem 
-              src='images/shoot3.jpg'
-              text='One Magazine'
-              label='lookbook'
-              path='/idk'
-            />
-            <CardItem 
-              src='images/shoot4.jpg'
-              text='UWU'
-              label='lookbook'
-              path='/idk'
-            />
-          </ul>
+          <div className="cards__items">
+            {props.images.map((image) => {
+              if (image.text == "") {
+                return <CardItem src={image.path} />;
+              } else {
+                return (
+                  <CardItem
+                    src={image.path}
+                    text={image.title}
+                    label={image.filter}
+                    path={"/portfolio/" + image.folder}
+                  />
+                );
+              }
+            })}
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Cards
+export default Cards;

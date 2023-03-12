@@ -7,16 +7,16 @@ function HeroSection() {
   return (
     <div className='hero-container'>
         <div className='hero-btns'>
-            <img src='images/coder.jpg'></img>
+            <img className="home-button-background"src='images/coder.jpg'></img>
             <Button
                 className='btn'
                 buttonStyle='btn--outline'
                 buttonSize='btn--large'
-                destination='/resume'
+                destination='dev'
             >
                 The Coder
             </Button>
-            <img src='images/shoot1.jpg'></img>
+            <img className="home-button-background" src='images/shoot1.jpg'></img>
             <Button
                 className='btn'
                 buttonStyle='btn--outline'
