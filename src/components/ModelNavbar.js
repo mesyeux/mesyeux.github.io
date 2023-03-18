@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DropDownItem from "./DropDownItem";
+import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import "./ModelNavbar.css";
-import { CiInstagram } from "react-icons/ci";
 
 function ModelNavbar(props) {
   const [click, setClick] = useState(false);
@@ -13,11 +13,12 @@ function ModelNavbar(props) {
   const closeMobileMenu = () => setClick(false);
   const handleDropdown = () => setDropdown(!dropdown);
 
-  const onClick = (filter, text) => {
+  const handleOnClick = (filter, text) => {
     handleDropdown();
 
     props.filterImages(filter);
     props.setCoverText(text);
+    console.log(filter);
   };
 
   const showButton = () => {
@@ -41,14 +42,6 @@ function ModelNavbar(props) {
           <Link to="/" className="model-navbar-logo" onClick={closeMobileMenu}>
             chloe lau
           </Link>
-          <Link
-            to="https://www.instagram.com/cloyeeee/?hl=en"
-            className="links"
-          >
-            <CiInstagram className="instagram-model" />
-            {/* <i class="bi bi-instagram" id="instagram-model"></i> */}
-            {/* <i class="fa-brands fa-instagram fa-lg" id="instagram-model"></i> */}
-          </Link>
           <div className="model-navbar-container">
             <div className="menu-icon" onClick={handleClick}>
               <i
@@ -69,10 +62,7 @@ function ModelNavbar(props) {
                 <div className="menu-container">
                   <div className="model-nav-links" onClick={handleDropdown}>
                     Portfolio&nbsp;
-                    <i
-                      className="fa fa-caret-down fa-sm"
-                      aria-hidden="true"
-                    ></i>
+                    {dropdown ? <AiFillCaretUp /> : <AiFillCaretDown />}
                   </div>
                   <div
                     className={
@@ -83,34 +73,40 @@ function ModelNavbar(props) {
                   >
                     <ul class="list-unstyled">
                       <DropDownItem
+                        exact
                         text="Editorials"
                         link="/portfolio/editorials"
-                        onClick={() => onClick("editorial", "EDITORIAL")}
+                        onClick={() => handleOnClick("editorial", "EDITORIALS")}
                       />
                       <DropDownItem
+                        exact
                         text="Ecommerce"
                         link="/portfolio/ecommerce"
-                        onClick={() => onClick("ecommerce", "ECOMMERCE")}
+                        onClick={() => handleOnClick("ecommerce", "ECOMMERCE")}
                       />
                       <DropDownItem
+                        exact
                         text="Lookbooks"
                         link="/portfolio/lookbooks"
-                        onClick={() => onClick("lookbook", "LOOKBOOK")}
+                        onClick={() => handleOnClick("lookbook", "LOOKBOOKS")}
                       />
                       <DropDownItem
+                        exact
                         text="Runway"
                         link="/portfolio/runway"
-                        onClick={() => onClick("runway", "RUNWAY")}
+                        onClick={() => handleOnClick("runway", "RUNWAY")}
                       />
                       <DropDownItem
+                        exact
                         text="Tests"
                         link="/portfolio/tests"
-                        onClick={() => onClick("test", "TESTS")}
+                        onClick={() => handleOnClick("test", "TESTS")}
                       />
                       <DropDownItem
+                        exact
                         text="All"
                         link="/portfolio"
-                        onClick={() => onClick("", "PORTFOLIO")}
+                        onClick={() => handleOnClick("", "PORTFOLIO")}
                       />
                     </ul>
                   </div>

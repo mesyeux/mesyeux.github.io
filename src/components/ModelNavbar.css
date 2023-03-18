@@ -1,5 +1,7 @@
 :root {
   --speed: 500ms;
+  --green: #41582e;
+  --beige: #fffff7;
 }
 
 .links:visited {
@@ -16,7 +18,7 @@
 }
 
 .model-navbar {
-    background: white;
+    background: var(--beige);
     height: 80px;
     display: flex;
     justify-content: center;
@@ -51,7 +53,7 @@
   }
   
   .model-navbar-logo {
-    color: #000000;
+    color: var(--green);
     justify-self: center;
     cursor: pointer;
     text-decoration: none;
@@ -60,6 +62,10 @@
     text-align: center;
     height: 40px;
     margin: 10px 0px 10px 0px;
+  }
+
+  .model-navbar-logo:hover {
+    color: var(--green);
   }
   
   .fa-typo3 {
@@ -85,7 +91,7 @@
   }
   
   .model-nav-links {
-    color: #000000;
+    color: var(--green);
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -99,8 +105,9 @@
 
   /* look at this for the weird transition effect */
   .model-nav-links:hover {
-    border-bottom: 4px solid #fff;
-    transition: all 0.2s ease-out;
+    border-bottom: 2.5px solid var(--green);
+    transition: all 0.3s ease-in-out;
+    color: var(--green)
   }
   
   .fa-bars {
@@ -116,7 +123,7 @@
   }
 
   .model-dropdown-menu {
-    background-color: #fff;
+    background-color: var(--beige);
     max-width:100%;
   }
 
@@ -140,7 +147,7 @@
     padding: 10px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     list-style-type: none;
-    color: #000000;
+    color: var(--green);
     text-decoration: none;
   }
 
@@ -190,6 +197,10 @@
       top: 0;
       left: 0;
       transform: translate(25%, 50%);
+    }
+
+    a .model-navbar-logo:hover {
+      color: var(--green);
     }
   
     .menu-icon {

@@ -5,6 +5,8 @@ import ModelNavbar from "../ModelNavbar";
 import { COVERIMAGES } from "../images";
 import { useState } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import Socials from "../Socials";
+import { Modal } from "react-bootstrap";
 
 function Portfolio(props) {
   const [images, setImages] = useState(COVERIMAGES);
@@ -24,11 +26,14 @@ function Portfolio(props) {
   return (
     <>
       <ModelNavbar filterImages={filterImages} setCoverText={setCoverText} />
-      <div className="filter-cover-img-wrap">
+      <div className="filter-cover-wrap">
         <h1 className="filter-text">{coverText}</h1>
-        <img src={images[0].path} className="filter-cover-img" />
+        <div className="filter-cover-img-wrap">
+          <img src={images[0].path} className="filter-cover-img" />
+        </div>
       </div>
       <Cards images={images} />
+      <Socials />
     </>
   );
 }

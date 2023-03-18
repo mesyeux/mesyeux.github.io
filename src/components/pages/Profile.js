@@ -2,25 +2,30 @@ import React from "react";
 import ModelNavbar from "../ModelNavbar";
 import CardItem from "../CardItem";
 import { DIGITALS } from "../images";
+import { COVERIMAGES } from "../images";
 import { TabContainer, Tab, Row, Col, Nav, Container } from "react-bootstrap";
 import { useState } from "react";
+import { BsArrowLeftRight } from "react-icons/bs";
+import Socials from "../Socials";
 
 function Profile() {
-  const [activeTab, setActiveTab] = useState("about");
+  const [activeTab, setActiveTab] = useState("stats");
+  const [metric, setMetric] = useState(true);
 
   return (
     <>
       <ModelNavbar />
       <div className="profile-container">
-        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-          <Row>
+        <Tab.Container id="left-tabs-example" defaultActiveKey="second">
+          <Row className="align-items-center">
+            <Col sm={1}></Col>
             <Col sm={3}>
               {activeTab === "about" ? (
-                <img src={DIGITALS[7]["path"]} className="profile-pic" />
+                <img src={COVERIMAGES[4]["path"]} className="profile-pic" />
               ) : activeTab === "stats" ? (
-                <img src={DIGITALS[8]["path"]} className="profile-pic" />
+                <img src={DIGITALS[0]["path"]} className="profile-pic" />
               ) : (
-                <img src={DIGITALS[9]["path"]} className="profile-pic" />
+                <img src={COVERIMAGES[12]["path"]} className="profile-pic" />
               )}
             </Col>
             <Col sm={3}>
@@ -69,19 +74,23 @@ function Profile() {
                 </Nav.Item>
               </Nav>
             </Col>
-            <Col sm={6} className="info-container">
+            <Col sm={4} className="info-container">
               <Tab.Content>
                 <Tab.Pane eventKey="first">
-                  <p>I am a model</p>
+                  <p>Chloe Lau is a Singaporean model</p>
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
-                  <Container className="agencies-container">
+                  <Container className="stats-container">
                     <Row>
                       <Col>
                         <p>Height</p>
                       </Col>
                       <Col>
-                        <p>175cm</p>
+                        {metric ? (
+                          <p className="value">175</p>
+                        ) : (
+                          <p className="value">5'9</p>
+                        )}
                       </Col>
                     </Row>
                     <Row>
@@ -89,7 +98,13 @@ function Profile() {
                         <p>Bust</p>
                       </Col>
                       <Col>
-                        <p>88cm</p>
+                        <p>
+                          {metric ? (
+                            <p className="value">70</p>
+                          ) : (
+                            <p className="value">27.5</p>
+                          )}
+                        </p>
                       </Col>
                     </Row>
                     <Row>
@@ -97,7 +112,11 @@ function Profile() {
                         <p>Waist</p>
                       </Col>
                       <Col>
-                        <p>57cm</p>
+                        {metric ? (
+                          <p className="value">57</p>
+                        ) : (
+                          <p className="value">22.5</p>
+                        )}
                       </Col>
                     </Row>
                     <Row>
@@ -105,7 +124,11 @@ function Profile() {
                         <p>Hips</p>
                       </Col>
                       <Col>
-                        <p>88cm</p>
+                        {metric ? (
+                          <p className="value">88</p>
+                        ) : (
+                          <p className="value">34.5</p>
+                        )}
                       </Col>
                     </Row>
                     <Row>
@@ -113,7 +136,11 @@ function Profile() {
                         <p>Shoes</p>
                       </Col>
                       <Col>
-                        <p>EU 40</p>
+                        {metric ? (
+                          <p className="value">40</p>
+                        ) : (
+                          <p className="value">9</p>
+                        )}
                       </Col>
                     </Row>
                     <Row>
@@ -131,6 +158,13 @@ function Profile() {
                       <Col>
                         <p>Brown</p>
                       </Col>
+                      <div className="switch">
+                        <BsArrowLeftRight
+                          className="switch-icon"
+                          onClick={() => setMetric(!metric)}
+                        />
+                        &nbsp;&nbsp;&nbsp;{metric ? "Imperial" : "Metric"}
+                      </div>
                     </Row>
                   </Container>
                 </Tab.Pane>
@@ -138,7 +172,7 @@ function Profile() {
                   <Container className="agencies-container">
                     <Row>
                       <Col>
-                        <p>Singapore</p>
+                        <p>Singapore:</p>
                       </Col>
                       <Col>
                         <p>Mannequin Studio</p>
@@ -146,7 +180,7 @@ function Profile() {
                     </Row>
                     <Row>
                       <Col>
-                        <p>Paris</p>
+                        <p>Paris:</p>
                       </Col>
                       <Col>
                         <p>Elite Paris</p>
@@ -154,7 +188,7 @@ function Profile() {
                     </Row>
                     <Row>
                       <Col>
-                        <p>Milan</p>
+                        <p>Milan:</p>
                       </Col>
                       <Col>
                         <Nav.Link
@@ -167,7 +201,7 @@ function Profile() {
                     </Row>
                     <Row>
                       <Col>
-                        <p>Amsterdam</p>
+                        <p>Amsterdam:</p>
                       </Col>
                       <Col>
                         <Nav.Link
@@ -180,7 +214,7 @@ function Profile() {
                     </Row>
                     <Row>
                       <Col>
-                        <p>London</p>
+                        <p>London:</p>
                       </Col>
                       <Col>
                         <Nav.Link
@@ -193,7 +227,7 @@ function Profile() {
                     </Row>
                     <Row>
                       <Col>
-                        <p>Germany</p>
+                        <p>Germany:</p>
                       </Col>
                       <Col>
                         <Nav.Link
@@ -206,7 +240,7 @@ function Profile() {
                     </Row>
                     <Row>
                       <Col>
-                        <p>Stockholm</p>
+                        <p>Stockholm:</p>
                       </Col>
                       <Col>
                         <Nav.Link
@@ -219,7 +253,7 @@ function Profile() {
                     </Row>
                     <Row>
                       <Col>
-                        <p>Norway</p>
+                        <p>Norway:</p>
                       </Col>
                       <Col>
                         <Nav.Link
@@ -234,8 +268,10 @@ function Profile() {
                 </Tab.Pane>
               </Tab.Content>
             </Col>
+            <Col sm={1}></Col>
           </Row>
         </Tab.Container>
+        <Socials />
       </div>
     </>
   );

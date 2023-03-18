@@ -5,13 +5,15 @@ import Skills from "../Skills";
 import Projects from "../Projects";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Experience from "../Experience";
+import Socials from "../Socials";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import BottomBar from "../BottomBar";
 
 function DevPage() {
   return (
-    <>
+    <div className="dev-page">
       <DevNavBar />
-      <Parallax pages={4}>
+      {/* <Parallax pages={4}>
         <ParallaxLayer offset={0} speed={0.5}>
           <DevBanner />
         </ParallaxLayer>
@@ -24,12 +26,13 @@ function DevPage() {
         <ParallaxLayer offset={3} speed={0.7}>
           <Experience />
         </ParallaxLayer>
-      </Parallax>
-      {/* <DevBanner />
+      </Parallax> */}
+      <DevBanner />
       <Skills />
+      <Experience />
       <Projects />
-      <Experience /> */}
-    </>
+      <BottomBar />
+    </div>
   );
 }
 

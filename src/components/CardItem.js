@@ -5,7 +5,15 @@ function CardItem(props) {
   return (
     <>
       <div className="cards__item">
-        <Link className="cards__item__link" to={props.path}>
+        <Link
+          className="cards__item__link"
+          to={props.path}
+          onClick={() => {
+            props.text === undefined
+              ? props.displayModal(props.src)
+              : console.log(props.text);
+          }}
+        >
           <div className="img__wrap">
             <img
               src={props.src}

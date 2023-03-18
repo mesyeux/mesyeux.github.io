@@ -1,7 +1,7 @@
 .bottom-bar {
     position: relative;
     bottom: 0;
-    background-color: antiquewhite;
+    background-color: #000;
     overflow: hidden;
     align-items: center;
     height: 50px;
@@ -12,10 +12,11 @@
 
 .made-by {
     font-size: 0.8rem;
-    color: #000;
+    color: #fff;
     width: 100%;
     margin: 10px;
     right: 100px;
+    text-align: center;
 }
 
 .links {

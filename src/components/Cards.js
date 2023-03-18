@@ -1,6 +1,7 @@
 import React from "react";
 import CardItem from "./CardItem";
 import "./Cards.css";
+import { useState } from "react";
 
 function Cards(props) {
   return (
@@ -9,8 +10,13 @@ function Cards(props) {
         <div className="cards__wrapper">
           <div className="cards__items">
             {props.images.map((image) => {
-              if (image.text == "") {
-                return <CardItem src={image.path} />;
+              if (image.title === undefined) {
+                return (
+                  <CardItem
+                    src={image.path}
+                    displayModal={props.displayModal}
+                  />
+                );
               } else {
                 return (
                   <CardItem
